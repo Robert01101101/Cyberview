@@ -113,7 +113,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0f68702a2821d934aa14971f55cbc02e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
@@ -135,10 +135,15 @@ MonoBehaviour:
   health: 3
   inputState: {fileID: 0}
   damageToPlayerPerHit: 8
+  groundCheckL: {fileID: 0}
+  groundCheckR: {fileID: 0}
+  enemyRewardSP: {fileID: 0}
   speed: 3
+  finalBossCutscene: {fileID: 0}
   animator: {fileID: 4628095361704148461}
   explosion: {fileID: 942015034889641297, guid: 33c93217c0afea94aabe1f9f6dff4e8f,
     type: 3}
+  orb: {fileID: 0}
 --- !u!198 &1192797757801396405
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4835,7 +4840,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1693554003
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -5162,7 +5167,7 @@ PrefabInstance:
     - target: {fileID: -6388725184936073404, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1190532762909764748, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
@@ -5172,7 +5177,7 @@ PrefabInstance:
     - target: {fileID: 1190532762909764748, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2068300687151690269, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
@@ -5182,7 +5187,7 @@ PrefabInstance:
     - target: {fileID: 2068300687151690269, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8744874471415643848, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
@@ -5197,7 +5202,7 @@ PrefabInstance:
     - target: {fileID: -8762932655632942764, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1843431546549274744, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
@@ -5252,7 +5257,7 @@ PrefabInstance:
     - target: {fileID: 7845648377076178910, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2823273557754225334, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
@@ -5262,7 +5267,7 @@ PrefabInstance:
     - target: {fileID: -2823273557754225334, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4345583999175984944, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
@@ -5272,7 +5277,7 @@ PrefabInstance:
     - target: {fileID: -4345583999175984944, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5752554001840604938, guid: ecd176611b5b93143b8a6310a99ff2ec,
         type: 3}

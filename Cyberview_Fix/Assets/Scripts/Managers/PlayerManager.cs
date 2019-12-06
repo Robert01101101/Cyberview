@@ -52,7 +52,7 @@ public class PlayerManager : AbstractCharacter
 
     //Booleans
     private bool rightPressed, leftPressed, armOnePressed, armTwoPressed, legsPressed, actionPressed, crouchPressed, pausePressed,
-        armOneReleased, armTwoReleased, legsReleased, backupGroundedCheck;
+        armOneReleased, armTwoReleased, legsReleased, backupGroundedCheck, colliding;
     private bool pushback, invincible, deathSequence;
 
     //Vectors
@@ -290,7 +290,7 @@ public class PlayerManager : AbstractCharacter
         }
         else
         {                                                       //Air Movement
-            if ((leftPressed || rightPressed) && !pushback)
+            if ((leftPressed || rightPressed) && !pushback && !colliding)
             {
                 /*
                 int accelMultiplier = 1;
@@ -322,6 +322,8 @@ public class PlayerManager : AbstractCharacter
                 animator.SetBool("run", false);
             }
             if (backupGroundedCheck) { backupGroundedCheck = false; StartCoroutine(BackupGroundedCheck()); }
+
+            Debug.Log("DEBUG: colliding = " + colliding + ", grounded = " + isGrounded);
         }
 
         //flip visually
@@ -381,6 +383,9 @@ public class PlayerManager : AbstractCharacter
         if (collision.gameObject.layer == 12)
         {
             HitByEnemy(collision.gameObject);
+        } else if (collision.gameObject.layer == 8)
+        {
+            colliding = true;
         }
     }
 
@@ -389,6 +394,17 @@ public class PlayerManager : AbstractCharacter
         if (collision.gameObject.layer == 12)
         {
             HitByEnemy(collision.gameObject);
+        } else if (collision.gameObject.layer == 8)
+        {
+            colliding = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 8 && !isGrounded)
+        {
+            colliding = false;
         }
     }
 
@@ -414,6 +430,7 @@ public class PlayerManager : AbstractCharacter
         {
             myPhysicsMaterial.friction = 0f;
         }
+        colliding = false;
     }
 
     public void HitByEnemy(GameObject enemy)
