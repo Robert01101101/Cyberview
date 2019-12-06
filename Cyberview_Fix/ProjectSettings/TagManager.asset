@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - HeavyBlock
+  - SpawnPoint
+  - Boulder
+  - Pickup
+  - DestroyableSceneObject
+  - rangedBullet
+  - rangedEnemy
+  - Orb
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Solid
+  - Player
+  - Projectile
+  - Boulder
+  - Enemy
+  - PostProcessing
+  - CanMoveIntoSolid
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: backgroundScene
+    uniqueID: 3898901673
+    locked: 0
+  - name: NPCsBack
+    uniqueID: 1669104007
+    locked: 0
+  - name: NPCs
+    uniqueID: 4079753903
+    locked: 0
+  - name: behindTiles
+    uniqueID: 4059522775
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: onTopOfTiles
+    uniqueID: 1244894517
+    locked: 0
