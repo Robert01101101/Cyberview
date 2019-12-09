@@ -151,4 +151,9 @@ public class FinalBoss : AbstractEnemy
 
     }
 
+    public override void HitBy(GameObject weapon)
+    {
+        // (override to do nothing if hit by bullet)
+    }
+
 }

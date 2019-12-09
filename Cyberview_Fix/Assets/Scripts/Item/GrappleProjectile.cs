@@ -38,13 +38,15 @@ public class GrappleProjectile : MonoBehaviour
 
         LineRenderer lineRenderer = GetComponent<LineRenderer> ();
  
-        lineRenderer.SetPosition (0, transform.localPosition);
+        lineRenderer.SetPosition (0, new Vector3(transform.localPosition.x, transform.localPosition.y, -1));
+        Vector3 ownerPos = new Vector3(0,0,0);
         if (bm_Grapple.armSide == ArmSide.ARMONE)
         {
-            lineRenderer.SetPosition(1, owner.transform.localPosition + armOneAttach);
+            ownerPos = new Vector3((owner.transform.localPosition + armOneAttach).x, (owner.transform.localPosition + armOneAttach).y, -1);
         } else {
-            lineRenderer.SetPosition(1, owner.transform.localPosition + armTwoAttach);
+            ownerPos = new Vector3((owner.transform.localPosition + armTwoAttach).x, (owner.transform.localPosition + armTwoAttach).y, -1);
         }
+        lineRenderer.SetPosition(1, ownerPos);
         lifetime -= Time.deltaTime;
 
         if(attachedTerrain == null){            //Hook is flying

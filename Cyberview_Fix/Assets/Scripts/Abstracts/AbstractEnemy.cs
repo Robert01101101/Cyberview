@@ -46,7 +46,7 @@ public abstract class AbstractEnemy : AbstractCharacter
     }
 
     //Push Back the Enemy when its hit by a weapon
-    public void HitBy(GameObject weapon)
+    public virtual void HitBy(GameObject weapon)
     {
         health--;
 
