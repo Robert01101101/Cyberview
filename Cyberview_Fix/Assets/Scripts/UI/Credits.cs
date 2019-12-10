@@ -5,31 +5,31 @@ using UnityEngine;
 public class Credits : MonoBehaviour
 {
     // Start is called before the first frame update
-
-    public float picDelay, teamDelay;
-    public CanvasGroup picGroup, teamGroup;
+    public CanvasGroup logoCG;
+    public Animator roll;
+    public GameObject quitBtn;
 
     void Start()
     {
         StartCoroutine(CreditsSequence());
+        PlayerPrefs.DeleteAll();
+        GameObject.Find("_HUD").SetActive(false);
+        GameObject.Find("Sound").SetActive(false);
     }
 
 
     IEnumerator CreditsSequence()
     {
-        yield return new WaitForSeconds(picDelay);
+        yield return new WaitForSeconds(.3f);
+        logoCG.gameObject.SetActive(true);
+        StartCoroutine(FadeCanvasGroup(logoCG, logoCG.alpha, 1, 3.5f));
+        //StartCoroutine(ShrinkLogo(logo, 4));
 
-        StartCoroutine(FadeCanvasGroup(picGroup, teamGroup.alpha, 1, 1f));
+        yield return new WaitForSeconds(6.3f);
+        roll.enabled = true;
 
-        yield return new WaitForSeconds(teamDelay);
-
-        StartCoroutine(FadeCanvasGroup(teamGroup, teamGroup.alpha, 1, 1f));
-
-        /*
-        yield return new WaitForSeconds(nextDelay);
-
-        //do something
-        */
+        yield return new WaitForSeconds(40.5f);
+        quitBtn.SetActive(true);
     }
 
     IEnumerator FadeCanvasGroup(CanvasGroup cg, float start, float end, float lerpTime = 1)
@@ -51,5 +51,11 @@ public class Credits : MonoBehaviour
 
             yield return new WaitForFixedUpdate();
         }
+    }
+
+    public void QuitBtn()
+    {
+        Application.Quit();
+        Debug.Log("Credits -> Quit");
     }
 }

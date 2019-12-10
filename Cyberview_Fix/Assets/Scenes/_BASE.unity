@@ -16867,6 +16867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 789145235}
   lvlManager: {fileID: 0}
+  ppProfile: {fileID: 11400000, guid: f350c78b070730f4288373d4746a7df7, type: 2}
   paused: 0
   newFloor: 0
 --- !u!4 &1824120418

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     public readonly static int FLOOR_2 = 14;
     public readonly static int FLOOR_1 = 17;
     public readonly static List<int> floorList = new List<int> { FLOOR_B4, FLOOR_B3, FLOOR_B2, FLOOR_B1, FLOOR_4, FLOOR_3, FLOOR_2, FLOOR_1 };
+    public PostProcessProfile ppProfile;
 
     //Scenes
     [System.NonSerialized]
@@ -74,6 +76,8 @@ public class GameManager : MonoBehaviour
         int newSceneIdx = scene.buildIndex;
         currentScene = newSceneIdx;
         Debug.Log("Game Manager -> Scene Loaded: idx=" + newSceneIdx + ", name=" + scene.name + ", loadMode=" + mode);
+        Bloom bloomLayer;
+        ppProfile.TryGetSettings(out bloomLayer);
 
         if ( newSceneIdx > CREDITS) // -- Level Loaded --
         {
@@ -84,13 +88,21 @@ public class GameManager : MonoBehaviour
             playerManager.ResetPlayer(clearBoxes);
             lvlManager = GameObject.Find("LevelManager").GetComponent<LvlManager>();
             lvlManager.InitLevel(this, lastSceneName, playerDied);
-
+            
+            //post processing
+            bloomLayer.intensity.value = 63f;
+            bloomLayer.threshold.value = 1.6f;
+            bloomLayer.softKnee.value = 0.7f;
             //Level Specific
             if (newSceneIdx == FLOOR_1) GameObject.Find("Protagonist_v6").GetComponent<PlayerSound>().BossMusic();
             if (floorList.Contains(newSceneIdx)) PlayerPrefs.SetInt("UnlockedFloor", currentScene);
         }
-        else if (newSceneIdx == CREDITS) // -- Menu Screen Loaded --
+        else if (newSceneIdx == CREDITS) // -- Credits Screen Loaded --
         {
+            //post processing
+            bloomLayer.intensity.value = 1f;
+            bloomLayer.threshold.value = 0.4f;
+            bloomLayer.softKnee.value = 0f;
             if (player.activeInHierarchy) player.SetActive(false);
         }
 

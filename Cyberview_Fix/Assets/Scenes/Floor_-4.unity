@@ -245,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 5614758932565005641, guid: cd80c7eb746babf4491ae63e8fe92ce2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5614758932565005641, guid: cd80c7eb746babf4491ae63e8fe92ce2,
         type: 3}
@@ -1928,7 +1928,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bodyModPrefab
       value: 
-      objectReference: {fileID: 5135713357915866023, guid: b5193fc37bbcafc42807f54be8d53fcf,
+      objectReference: {fileID: 4695552541598324926, guid: 2114580d8a67af44f9fbb950b2bb303e,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4062feb18b802d84f8d35eeabc224002, type: 3}
@@ -2088,7 +2088,7 @@ PrefabInstance:
     - target: {fileID: 5185912301522452323, guid: 95ebe87ea47e7c84588f038cc508b40e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5185912301522452323, guid: 95ebe87ea47e7c84588f038cc508b40e,
         type: 3}
@@ -6170,7 +6170,7 @@ PrefabInstance:
     - target: {fileID: 3809820164273493149, guid: c5bc667300cee3448bfc35c757b2f760,
         type: 3}
       propertyPath: sceneToLoad
-      value: Floor_1_Boss
+      value: Floor_-4_Mine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5bc667300cee3448bfc35c757b2f760, type: 3}

@@ -15,6 +15,7 @@ public class FinalBossCutscene : MonoBehaviour
     private bool bossDead, orbPressed, exitedWorld;
     private float endOFWorldX;
     public CinemachineVirtualCamera myCam;
+    public CanvasGroup fadeOut;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class FinalBossCutscene : MonoBehaviour
             player = GameObject.Find("_Player");
             if (playerManager == null) playerManager = player.GetComponent<PlayerManager>();
 
-            if (player.transform.position.x > endOFWorldX)
+            if (player.transform.position.x > endOFWorldX) //DONE
             {
                 exitedWorld = true;
                 playerManager.disableInputs = true;
@@ -41,9 +42,33 @@ public class FinalBossCutscene : MonoBehaviour
 
     IEnumerator CreditsRoutine()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
+        fadeOut.gameObject.SetActive(true);
+        StartCoroutine(FadeCanvasGroup(fadeOut, 0, 1, 2));
+        yield return new WaitForSeconds(2);
         dialogueHandler.hideDialogue();
         playerManager.gameManager.LoadScene(1);
+    }
+
+    IEnumerator FadeCanvasGroup(CanvasGroup cg, float start, float end, float lerpTime = 1)
+    {
+        float _timeStartedLerping = Time.time;
+        float timeSinceStarted = Time.time - _timeStartedLerping;
+        float percentageComplete = timeSinceStarted / lerpTime;
+
+        while (true)
+        {
+            timeSinceStarted = Time.time - _timeStartedLerping;
+            percentageComplete = timeSinceStarted / lerpTime;
+
+            float currentValue = Mathf.Lerp(start, end, percentageComplete);
+
+            cg.alpha = currentValue;
+
+            if (percentageComplete >= 1) break;
+
+            yield return new WaitForFixedUpdate();
+        }
     }
 
     public void BossDied()
