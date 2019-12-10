@@ -8,6 +8,7 @@ public class LVL_0_MineCollapse : AbstractLvlItem
 
     public GameObject theDudeThatRunsAway, rubble, bouldersToRemove, dialogue1, dialogue2, npc1, npc2, npc3;
     private bool collected;
+    private AudioSource collapseSound;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class LVL_0_MineCollapse : AbstractLvlItem
             rubble.SetActive(true);
             collected = true;
         }
+        collapseSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,6 +45,7 @@ public class LVL_0_MineCollapse : AbstractLvlItem
 
         yield return new WaitForSeconds(1);
         hud.BlackOutFX(4.5f);
+        collapseSound.Play();
 
         playerManager.disableInputs = true;
         bouldersToRemove.SetActive(false);
