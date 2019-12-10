@@ -13,6 +13,7 @@ public class BM_Grapple : AbstractBodyMod
     public float projectileSpeed = 15f;
     public GameObject existingProjectile;
     public GameObject hookVisualOne, hookVisualTwo;
+    public AudioSource grappleFire, grappleHit, grapplePull, jumpSound;
 
     //public GameObject hookOneVisual, hookTwoVisual;
 
@@ -47,9 +48,11 @@ public class BM_Grapple : AbstractBodyMod
             existingProjectile = projectileObject;
             GrappleProjectile projectile = projectileObject.GetComponent<GrappleProjectile>();
             projectile.owner = owner;
+            grappleFire.Stop();
+            grappleFire.Play();
 
             //setup bullet properties
-            projectile.SetupProjectile(projectileLifetime, projectileDamage, projectileSpeed, owner.isFacingRight);
+            projectile.SetupProjectile(projectileLifetime, projectileDamage, projectileSpeed, owner.isFacingRight, grappleHit, grapplePull, grappleFire, jumpSound);
             //delay to avoid shooting once per frame
 
             owner.DecreaseHealth(energyCostPerTick, false);

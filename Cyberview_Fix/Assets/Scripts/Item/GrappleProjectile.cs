@@ -20,6 +20,7 @@ public class GrappleProjectile : MonoBehaviour
     private Vector3 armOneAttach, armTwoAttach;
     public bool grappling = false;
     private bool delayedReleaseCheck;
+    private AudioSource grappleFire, grappleHit, grapplePull, jumpSound;
 
     private void Awake()
     {
@@ -53,6 +54,8 @@ public class GrappleProjectile : MonoBehaviour
             body2d.velocity = new Vector2(speed*rightFactor, 0);
             if(lifetime < 0){
                 bm_Grapple.GrappleDead();
+                grapplePull.Stop();
+                grappleFire.Stop();
                 Destroy(gameObject);
             }
             //Debug.Log(lifetime);
@@ -69,9 +72,14 @@ public class GrappleProjectile : MonoBehaviour
             }
 
             if(projectileDone){
+                // Hook is done
                 owner.GetComponent<Rigidbody2D>().velocity = new Vector2(0,33);
 
                 bm_Grapple.GrappleDead();
+                grapplePull.Stop();
+                grappleFire.Stop();
+                jumpSound.Stop();
+                jumpSound.Play();
                 Destroy(gameObject);
             }
 
@@ -97,17 +105,23 @@ public class GrappleProjectile : MonoBehaviour
             Debug.Log("GrappleProjectile -> Path blocked. Detach.");
             owner.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 33);
             bm_Grapple.GrappleDead();
+            grapplePull.Stop();
+            grappleFire.Stop();
             Destroy(gameObject);
         }
         delayedReleaseCheck = false;
     }
 
-    public void SetupProjectile(float pLifetime, float pDamage, float pSpeed, bool pRight)
+    public void SetupProjectile(float pLifetime, float pDamage, float pSpeed, bool pRight, AudioSource pgrappleHit, AudioSource pgrapplePull, AudioSource pGrappleFire, AudioSource pJumpSound)
     {
         lifetime = pLifetime;
         damage = pDamage;
         speed = pSpeed;
         right = pRight;
+        grappleHit = pgrappleHit;
+        grapplePull = pgrapplePull;
+        grappleFire = pGrappleFire;
+        jumpSound = pJumpSound;
         if (!right) { rightFactor = -1; } else { rightFactor = 1; }
         if(!right){
             GetComponent<SpriteRenderer>().flipX = true;
@@ -128,11 +142,23 @@ public class GrappleProjectile : MonoBehaviour
         }
         else if(target.gameObject.layer == 8 || target.gameObject.tag == "HeavyBlock" || target.gameObject.tag == "Orb" || target.gameObject.tag == "Boulder")
         {
+            //Attach
             attachedTerrain = target.gameObject;
             float angle = Mathf.Atan2(transform.position.y-owner.transform.position.y, transform.position.x-owner.transform.position.x);
             playerVel = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
             playerVel *= 33;
             grappling = true;
+            grappleHit.Stop();
+            grappleHit.Play();
+            StartCoroutine(PullSoundDelay());
         }
+    }
+
+    IEnumerator PullSoundDelay()
+    {
+        yield return new WaitForSeconds(.1f);
+        grappleFire.Stop();
+        grapplePull.Stop();
+        grapplePull.Play();
     }
 }

@@ -448,6 +448,7 @@ public class PlayerManager : AbstractCharacter
             {
                 health -= enemy.GetComponent<Bullets>().DamageToCharacter();
                 hitByBullet = true;
+                playerSound.LaserBulletHit();
             }
             hud.SetHealth(health);
             hud.PlayerHitFX();
@@ -457,11 +458,12 @@ public class PlayerManager : AbstractCharacter
             if (!hitByBullet && !hitByBoss)
             {
                 enemy.GetComponent<AbstractEnemy>().PlayerCollision(gameObject);
-                
+                playerSound.EnemyHit();
             } else if (hitByBoss)
             {
                 if (enemy.GetComponent<FinalBoss>() != null) health -= enemy.GetComponent<FinalBoss>().damageToPlayerPerHit;
                 else if (enemy.GetComponent<BossShovelHelper>() != null) health -= enemy.GetComponent<BossShovelHelper>().damageToPlayerPerHit;
+                playerSound.EnemyHit();
             }
             Debug.Log("PlayerManager -> HitByEnemy:" + enemy.name + ". New Player Health:" + health);
 

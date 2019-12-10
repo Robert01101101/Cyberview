@@ -18,7 +18,12 @@ public class BM_Gun : AbstractBodyMod
     private float XdistanceFromPlayerTwo = 4.5f;
     private float YdistanceFromPlayerOne = 0.7f;
     private float YdistanceFromPlayerTwo = 0.9f;
+    private AudioSource gunShot;
 
+    private void Start()
+    {
+        gunShot = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -55,9 +60,12 @@ public class BM_Gun : AbstractBodyMod
             Projectile projectile = projectileObject.GetComponent<Projectile>();
 
             //setup bullet properties
-            projectile.SetupProjectile(projectileLifetime, projectileDamage, projectileSpeed, owner.isFacingRight);
+            projectile.SetupProjectile(projectileLifetime, projectileDamage, projectileSpeed, owner.isFacingRight, this);
 
             owner.DecreaseHealth(energyCostPerTick, false);
+
+            gunShot.Stop();
+            gunShot.Play();
 
             //delay to avoid shooting once per frame
             StartCoroutine(ShootDelay());
@@ -100,5 +108,10 @@ public class BM_Gun : AbstractBodyMod
     public void ArmLowered()
     {
         armRaised = false;
+    }
+
+    public void HitSound()
+    {
+        owner.GetPlayerSound().BulletHit();
     }
 }

@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     private float speed = 10f;
     private bool right = true;
     private int rightFactor;
+    private BM_Gun gun;
 
     private void Awake()
     {
@@ -22,12 +23,13 @@ public class Projectile : MonoBehaviour
         body2d.velocity = new Vector2(speed*rightFactor, 0);
     }
 
-    public void SetupProjectile(float pLifetime, float pDamage, float pSpeed, bool pRight)
+    public void SetupProjectile(float pLifetime, float pDamage, float pSpeed, bool pRight, BM_Gun pGun)
     {
         lifetime = pLifetime;
         damage = pDamage;
         speed = pSpeed;
         right = pRight;
+        gun = pGun;
         if (!right) { rightFactor = -1; } else { rightFactor = 1; }
     }
 
@@ -41,9 +43,11 @@ public class Projectile : MonoBehaviour
             {
                 script.HitBy(gameObject);
             }
+            gun.HitSound();
         } else if (target.gameObject.tag == "DestroyableSceneObject")
         {
             target.gameObject.GetComponent<DestroyableSceneObject>().Hit();
+            gun.HitSound();
         }
         Destroy(gameObject);
     }

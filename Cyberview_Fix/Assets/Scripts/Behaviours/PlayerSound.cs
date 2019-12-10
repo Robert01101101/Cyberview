@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSound : MonoBehaviour
 {
-    public AudioSource footstep1, footstep2, pickup, jump, boulder, door;
+    public AudioSource footstep1, footstep2, pickup, jump, boulder, door, hit, laserHit, bulletHit;
     public PlayerManager owner;
 
     public void SoundFootStep1()
@@ -56,6 +56,24 @@ public class PlayerSound : MonoBehaviour
     public void ArmLowered()
     {
         owner.bm_Gun.ArmLowered();
+    }
+
+    public void EnemyHit()
+    {
+        hit.Stop();
+        hit.Play();
+    }
+
+    public void LaserBulletHit()
+    {
+        laserHit.Stop();
+        laserHit.Play();
+    }
+
+    public void BulletHit()
+    {
+        bulletHit.Stop();
+        bulletHit.Play();
     }
 
 

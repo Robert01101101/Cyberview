@@ -18,10 +18,12 @@ public class BM_StrongArm : AbstractBodyMod
     private float helperOrigYPos = -0.35f;
     private float helperFinalYPos = 0.15f;
     int framesStuckOnLedge;
+    private AudioSource audio;
 
     void Start()
     {
         originalBodyBoneYPos = owner.bodyBone.transform.position.y;
+        audio = GetComponent<AudioSource>();
     }
 
     //------------------------------------------------------ Released Hold Box Button
@@ -103,6 +105,7 @@ public class BM_StrongArm : AbstractBodyMod
                     if (Ydistance < closestYDistance) { heavyBox = box; closestYDistance = Ydistance; }
                 }
                 setUpBoxForTracking();
+                
             }
             else if (boxes.Count == 1)
             {
@@ -125,6 +128,9 @@ public class BM_StrongArm : AbstractBodyMod
         //disable box collider
         //heavyBox.GetComponent<BoxCollider2D>().enabled = false;
         heavyBox.GetComponent<Rigidbody2D>().simulated = false;
+
+        audio.Stop();
+        audio.Play();
 
         GotoState(BodyModState.ACTIVE);
         holdingBox = true;

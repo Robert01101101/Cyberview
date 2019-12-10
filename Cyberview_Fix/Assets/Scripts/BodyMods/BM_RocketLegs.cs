@@ -20,6 +20,12 @@ public class BM_RocketLegs : AbstractBodyMod
 
     private int energyUsageCounter = 0;
     public int framesBeforeLosingEnergy = 10;
+    private AudioSource audio;
+
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -72,11 +78,18 @@ public class BM_RocketLegs : AbstractBodyMod
     public override void DisableBodyMod()
     {
         flying = false;
+        audio.Stop();
     }
 
     public override void EnableBodyMod()
     {
         flying = true;
+        if (!audio.isPlaying)
+        {
+            audio.Stop();
+            audio.loop = true;
+            audio.Play();
+        }
     }
 
     public override void EquipBodyMod()
