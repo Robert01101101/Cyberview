@@ -16,13 +16,19 @@ public class GameManager : MonoBehaviour
     //// BUILD INDEXES ////
     public readonly static int _BASE = 0;
     public readonly static int CREDITS = 1;
-    public readonly static int FIRST_LVL = 2;
-    public readonly static int LAST_LVL = 5;
-    public readonly static int TEST_VALUE = 6;
+    public readonly static int FLOOR_B4 = 2;
+    public readonly static int FLOOR_B3 = 4;
+    public readonly static int FLOOR_B2 = 5;
+    public readonly static int FLOOR_B1 = 7;
+    public readonly static int FLOOR_4 = 9;
+    public readonly static int FLOOR_3 = 12;
+    public readonly static int FLOOR_2 = 14;
+    public readonly static int FLOOR_1 = 17;
+    public readonly static List<int> floorList = new List<int> { FLOOR_B4, FLOOR_B3, FLOOR_B2, FLOOR_B1, FLOOR_4, FLOOR_3, FLOOR_2, FLOOR_1 };
 
     //Scenes
     [System.NonSerialized]
-    public int currentScene = FIRST_LVL; //<--- Set first Scene to load (should eventually be set by loading saved progress)
+    public int currentScene = FLOOR_B4; //<--- Set first Scene to load (should eventually be set by loading saved progress)
     private Scene curScene;
     private bool sceneCurrentlyLoading = false;
 
@@ -49,6 +55,10 @@ public class GameManager : MonoBehaviour
         curScene = SceneManager.GetActiveScene();
 
         //Load First Scene
+        if (PlayerPrefs.HasKey("UnlockedFloor"))
+        {
+            currentScene = PlayerPrefs.GetInt("UnlockedFloor");
+        }
         SceneManager.LoadScene(currentScene, LoadSceneMode.Additive);
 
         //Listen for Scene Loads & Unloads
@@ -63,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         int newSceneIdx = scene.buildIndex;
         currentScene = newSceneIdx;
-        Debug.Log("Scene Loaded: idx=" + newSceneIdx + ", name=" + scene.name + ", loadMode=" + mode);
+        Debug.Log("Game Manager -> Scene Loaded: idx=" + newSceneIdx + ", name=" + scene.name + ", loadMode=" + mode);
 
         if ( newSceneIdx > CREDITS) // -- Level Loaded --
         {
@@ -74,6 +84,10 @@ public class GameManager : MonoBehaviour
             playerManager.ResetPlayer(clearBoxes);
             lvlManager = GameObject.Find("LevelManager").GetComponent<LvlManager>();
             lvlManager.InitLevel(this, lastSceneName, playerDied);
+
+            //Level Specific
+            if (newSceneIdx == FLOOR_1) GameObject.Find("Protagonist_v6").GetComponent<PlayerSound>().BossMusic();
+            if (floorList.Contains(newSceneIdx)) PlayerPrefs.SetInt("UnlockedFloor", currentScene);
         }
         else if (newSceneIdx == CREDITS) // -- Menu Screen Loaded --
         {

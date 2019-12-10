@@ -120,12 +120,9 @@ public class PlayerManager : AbstractCharacter
 
         myPhysicsMaterial.friction = 1f;
 
-        //load health & credit from saved state
-        if (PlayerPrefs.HasKey("PlayerHealth")) health = PlayerPrefs.GetInt("PlayerHealth");
+        //load credit from saved state
         if (PlayerPrefs.HasKey("PlayerCredit")) credit = PlayerPrefs.GetInt("PlayerCredit");
-        if (health == 0) health = 100;
-
-        UpdateModSprites();
+        health = 100;
 
         hud = GameObject.Find("_HUD").GetComponent<HUD>();
         hud.InitializeHUD();
@@ -140,7 +137,8 @@ public class PlayerManager : AbstractCharacter
         {
             eyeL.GetComponent<SpriteRenderer>().color = new Color(0, 0.75f, 1);  eyeR.GetComponent<SpriteRenderer>().color = new Color(0, 0.75f, 1);
         }
-            
+
+        UpdateModSprites();
     }
 
     //===================================================================================== UPDATE ==============================================
@@ -322,8 +320,6 @@ public class PlayerManager : AbstractCharacter
                 animator.SetBool("run", false);
             }
             if (backupGroundedCheck) { backupGroundedCheck = false; StartCoroutine(BackupGroundedCheck()); }
-
-            Debug.Log("DEBUG: colliding = " + colliding + ", grounded = " + isGrounded);
         }
 
         //flip visually
@@ -495,11 +491,11 @@ public class PlayerManager : AbstractCharacter
         if (clearAllBoxes) { if (armOneMod == bm_StrongArm || armTwoMod == bm_StrongArm) { bm_StrongArm.ResetArm(); } }
 
         List<GameObject> boxesList = new List<GameObject>(GameObject.FindGameObjectsWithTag("HeavyBlock"));
-        Debug.Log("boxList Count 1 = " + boxesList.Count);
+        //Debug.Log("boxList Count 1 = " + boxesList.Count);
         for (int i = boxesList.Count - 1; i >= 0; i--) { if (boxesList[i].scene.name != gameObject.scene.name || boxesList[i].name == "BlockColliderHelper") { boxesList.Remove(boxesList[i]); } }
-        Debug.Log("boxList Count 2 = " + boxesList.Count);
+        //Debug.Log("boxList Count 2 = " + boxesList.Count);
         for (int i = boxesList.Count - 1; i >= 0; i--) { if (boxesList[i].transform.parent != bodyBone.gameObject.transform || clearAllBoxes) { Destroy(boxesList[i]); }}
-        Debug.Log("boxList Count 3 = " + boxesList.Count);
+        //Debug.Log("boxList Count 3 = " + boxesList.Count);
     }
 
 

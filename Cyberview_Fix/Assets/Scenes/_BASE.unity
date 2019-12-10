@@ -13250,7 +13250,9 @@ MonoBehaviour:
   hit: {fileID: 506912690}
   laserHit: {fileID: 742376834}
   bulletHit: {fileID: 2044483648}
+  music: {fileID: 76923640}
   owner: {fileID: 789145236}
+  bossMusic: {fileID: 8300000, guid: a04752d4079745449a66fbef7051772e, type: 3}
 --- !u!95 &1380443745
 Animator:
   serializedVersion: 3

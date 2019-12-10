@@ -41,7 +41,7 @@ public class BodyModSwappingStation : MonoBehaviour
         {
             HUD hud = GameObject.Find("_HUD").GetComponent<HUD>();
             hud.LoadBodyModMenu(chargeUsed, this);
-            Debug.Log("charge used:" + chargeUsed);
+            //Debug.Log("charge used:" + chargeUsed);
         }
     }
 

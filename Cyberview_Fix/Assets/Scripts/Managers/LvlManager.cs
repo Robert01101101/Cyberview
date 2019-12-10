@@ -96,7 +96,7 @@ public class LvlManager : MonoBehaviour
                 bmstn.LevelReset();
             }
 
-            Debug.Log("LvlManager Abstract Level Items Count: " + abstractLvlItems.Count);
+            //Debug.Log("LvlManager Abstract Level Items Count: " + abstractLvlItems.Count);
         }
 
 
@@ -121,7 +121,7 @@ public class LvlManager : MonoBehaviour
             }
         }
 
-        Debug.Log("DEBUG: LvlManager -> Using Spawn Point : " + defaultSpawnPoint.name);
+        Debug.Log("LvlManager -> Using Spawn Point : " + defaultSpawnPoint.name);
 
         // set player pos
         player.transform.position = defaultSpawnPoint.transform.position;

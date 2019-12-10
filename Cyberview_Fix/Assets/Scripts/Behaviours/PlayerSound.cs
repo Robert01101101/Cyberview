@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerSound : MonoBehaviour
 {
-    public AudioSource footstep1, footstep2, pickup, jump, boulder, door, hit, laserHit, bulletHit;
+    public AudioSource footstep1, footstep2, pickup, jump, boulder, door, hit, laserHit, bulletHit, music;
     public PlayerManager owner;
+    public AudioClip bossMusic;
 
     public void SoundFootStep1()
     {
@@ -74,6 +75,14 @@ public class PlayerSound : MonoBehaviour
     {
         bulletHit.Stop();
         bulletHit.Play();
+    }
+
+    public void BossMusic()
+    {
+        music.clip = bossMusic;
+        music.volume = .5f;
+        music.Stop();
+        music.Play();
     }
 
 
