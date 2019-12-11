@@ -103,20 +103,6 @@ public class RangedEnemy : AbstractEnemy
     }
 
 
-
-    public override void SetIsGrounded(bool newGroundedState, string colliderObjectName)
-    {
-        base.SetIsGrounded(newGroundedState, colliderObjectName);
-
-        //turn around if hitting wall or about to drop off a ledge
-
-        if (colliderObjectName == "Left Floor Box" && !newGroundedState) speed = -speed;
-        if (colliderObjectName == "Right Floor Box" && !newGroundedState) speed = -speed;
-        if (colliderObjectName == "Left Wall Box" && newGroundedState) speed = -speed;
-        if (colliderObjectName == "Right Wall Box" && newGroundedState) speed = -speed;
-
-        //Debug.Log("BasicEnemy -> SetIsGrounded(" + newGroundedState + colliderObjectName);
-    }
 }
 /*
 Citation

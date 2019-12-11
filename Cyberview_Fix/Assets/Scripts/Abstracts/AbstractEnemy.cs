@@ -13,14 +13,15 @@ public abstract class AbstractEnemy : AbstractCharacter
     public string objectID;
 
     public float speed;
-    private bool groundCheckDelay = false;
+    private float origSpeed;
+    private bool wallCheckDelay = false;
 
     public abstract void UpdateMovement();
 
     protected override void Awake()
     {
         base.Awake();
-
+        origSpeed = speed;
         objectID = gameObject.scene.name + ", x=" + gameObject.transform.position.x + ", y=" + gameObject.transform.position.y;
     }
 
@@ -101,41 +102,64 @@ public abstract class AbstractEnemy : AbstractCharacter
         //if (collision.gameObject.tag == "")
     }
 
-    public override void SetIsGrounded(bool newGroundedState, string colliderObjectName)
+    public override void SetIsGrounded(bool newGroundedState, GameObject colliderObject)
     {
-        if (colliderObjectName == "Left Floor Box" || colliderObjectName == "Right Floor Box")
+        if (colliderObject.name == "Left Floor Box" || colliderObject.name == "Right Floor Box")
         {
             isGrounded = newGroundedState;
-            if (!newGroundedState)
+            if (!newGroundedState && !wallCheckDelay)
             {
-                //
+                wallCheckDelay = true;
+                StartCoroutine(WallCheckRoutine());
+
                 Vector3 checkPos;
-                if (colliderObjectName == "Left Floor Box") { checkPos = groundCheckL.transform.position; } else { checkPos = groundCheckR.transform.position; }
-                Vector2 size = new Vector2(.5f, .5f);
+                checkPos = colliderObject.transform.position;
+                Vector2 size = new Vector2(.3f, .3f);
 
                 List<Collider2D> collidersAtCheckLocation = new List<Collider2D>(Physics2D.OverlapBoxAll(checkPos, size, 0));
                 for (int i = collidersAtCheckLocation.Count - 1; i >= 0; i--)
                 {
                     if (collidersAtCheckLocation[i].gameObject.layer != 8) collidersAtCheckLocation.Remove(collidersAtCheckLocation[i]);
                 }
-                if (collidersAtCheckLocation.Count == 0) speed = -speed;
+                if (collidersAtCheckLocation.Count == 0)
+                {
+                    
+                    if (colliderObject.transform.position.x > gameObject.transform.position.x)
+                    {
+                        speed = -origSpeed;
+                    }
+                    else
+                    {
+                        speed = origSpeed;
+                    }
+                }
                 //
             }
         }
-        else if (!groundCheckDelay)
+        else
         {
-            groundCheckDelay = true;
-            StartCoroutine(WallCheck(newGroundedState));
+            if (!wallCheckDelay)
+            {
+                
+                wallCheckDelay = true;
+                StartCoroutine(WallCheckRoutine());
+                if (colliderObject.transform.position.x > gameObject.transform.position.x)
+                {
+                    speed = -origSpeed;
+                } else
+                {
+                    speed = origSpeed;
+                }
+            }
+            
         }
-
-        //turn around if hitting wall or about to drop off a ledge
     }
 
-    IEnumerator WallCheck(bool newGroundedState)
+    IEnumerator WallCheckRoutine()
     {
-        if (newGroundedState) speed = -speed;
-        yield return new WaitForSeconds(5f);
-        groundCheckDelay = false;
+        yield return new WaitForSeconds(2f);
+        wallCheckDelay = false;
     }
+
 
 }

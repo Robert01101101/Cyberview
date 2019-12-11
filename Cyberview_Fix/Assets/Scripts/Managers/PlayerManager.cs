@@ -413,9 +413,9 @@ public class PlayerManager : AbstractCharacter
     //================================================================================ PUBLIC INTERFACE =======================================
 
     //================================================================================================================= Behaviors
-    public override void SetIsGrounded(bool newGroundedState, string colliderObjectName)
+    public override void SetIsGrounded(bool newGroundedState, GameObject colliderObject)
     {
-        base.SetIsGrounded(newGroundedState, colliderObjectName);
+        base.SetIsGrounded(newGroundedState, colliderObject);
         if (isGrounded)
         {
             animator.SetBool("jump", false);
@@ -479,7 +479,7 @@ public class PlayerManager : AbstractCharacter
         //Debug.Log("PlayerManager -> HitThrowback");
         yield return new WaitForSeconds(0.3f);
         pushback = false;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         invincible = false;
     }
 
