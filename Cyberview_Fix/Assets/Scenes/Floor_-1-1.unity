@@ -27747,6 +27747,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BodyModPickup
       objectReference: {fileID: 0}
+    - target: {fileID: 738646783946943611, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 738646783946943610, guid: 4062feb18b802d84f8d35eeabc224002,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27808,6 +27813,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8972388180567075034, guid: b5306545ae1ca9f4fb3225afce834bb7,
         type: 3}
+    - target: {fileID: 6611900447458547520, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423031862670167488, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_text
+      value: "Grapple \nHook"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423031862670167488, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423031862670167488, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423031862670167488, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423031862670167488, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4062feb18b802d84f8d35eeabc224002, type: 3}
 --- !u!4 &1911986528 stripped

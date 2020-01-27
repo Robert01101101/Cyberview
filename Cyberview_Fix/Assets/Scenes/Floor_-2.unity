@@ -26398,6 +26398,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8492142584317520141, guid: 7fcc57f78dba72342a4cda16f9431fae,
         type: 3}
+    - target: {fileID: 6611900447458547520, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423031862670167488, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_text
+      value: "Super \nLegs"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423031862670167488, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423031862670167488, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423031862670167488, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5423031862670167488, guid: 4062feb18b802d84f8d35eeabc224002,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4062feb18b802d84f8d35eeabc224002, type: 3}
 --- !u!4 &1689664941 stripped
