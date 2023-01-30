@@ -1,13 +1,18 @@
-# 410_Project
+# Chromakey and Color Matching
 
-## Team Members
+[Project Page](https://rmichels.com/cyberview)
 
-Carter Glass, Chris Louie, Rebecca Singh, Robert Michels
+[Download at Itch.io](https://rmichels.itch.io/cyberview)
 
-## Team Blog
+[Team Blog](https://404teamnotfound561902897.wordpress.com)
 
-[Team Blog](https://404teamnotfound561902897.wordpress.com). Includes links to team member Blogs.
+![Screenshot](https://rmichels.com/assets/img/cyberview.jpg "Screenshot")
 
-## Notes
+## Contributors
+* Carter Glass
+* Chris Louie
+* Rebecca Singh
+* Robert Michels
 
-Repository uses Git LFS.
+## References
+* Developed as part of the Advanced Game Design course IAT 410, at Simon Fraser University.
