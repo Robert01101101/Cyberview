@@ -6,7 +6,7 @@
 
 [Team Blog](https://404teamnotfound561902897.wordpress.com)
 
-![Screenshot](https://rmichels.com/assets/img/cyberview.jpg "Screenshot")
+[![Screenshot](https://rmichels.com/assets/img/cyberview.jpg)](https://rmichels.itch.io/cyberview)
 
 ## Contributors
 * Carter Glass
