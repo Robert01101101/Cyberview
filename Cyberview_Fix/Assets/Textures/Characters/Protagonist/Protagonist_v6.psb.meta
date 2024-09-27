@@ -61,6 +61,7 @@ ScriptedImporter:
     maxTextureSizeSet: 0
     compressionQualitySet: 0
     textureFormatSet: 0
+    applyGammaDecoding: 0
   spriteImportData:
   - name: 
     originalName: 
@@ -9303,28 +9304,8 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-  boneGOs:
-  - go: {fileID: 4897042933832596509, guid: 0078430d15571f84390d81025cb52209, type: 3}
-    index: 0
-  - go: {fileID: 1826970600515707561, guid: 0078430d15571f84390d81025cb52209, type: 3}
-    index: 1
-  - go: {fileID: 391999940318922247, guid: 0078430d15571f84390d81025cb52209, type: 3}
-    index: 2
-  - go: {fileID: -505105166561325746, guid: 0078430d15571f84390d81025cb52209, type: 3}
-    index: 3
-  - go: {fileID: 4068682832589994172, guid: 0078430d15571f84390d81025cb52209, type: 3}
-    index: 4
-  - go: {fileID: 6629754814405054529, guid: 0078430d15571f84390d81025cb52209, type: 3}
-    index: 5
-  - go: {fileID: 4006048332687526030, guid: 0078430d15571f84390d81025cb52209, type: 3}
-    index: 6
-  - go: {fileID: 7134189033660904733, guid: 0078430d15571f84390d81025cb52209, type: 3}
-    index: 7
-  - go: {fileID: 3615226424133879816, guid: 0078430d15571f84390d81025cb52209, type: 3}
-    index: 8
-  - go: {fileID: 5858786162060572418, guid: 0078430d15571f84390d81025cb52209, type: 3}
-    index: 9
   generateGOHierarchy: 0
   textureAssetName: Protagonist_v6 Texture
   prefabAssetName: Protagonist_v6 Prefab
   spriteLibAssetName: Protagonist_v6 Sprite Lib
+  secondarySpriteTextures: []

@@ -205,6 +205,7 @@ ScriptedImporter:
     maxTextureSizeSet: 0
     compressionQualitySet: 0
     textureFormatSet: 0
+    applyGammaDecoding: 0
   spriteImportData:
   - name: 
     originalName: 
@@ -3409,22 +3410,8 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-  boneGOs:
-  - go: {fileID: 100014, guid: 467d05ea003349245ac7d88b3b6ddf3d, type: 3}
-    index: 0
-  - go: {fileID: 100016, guid: 467d05ea003349245ac7d88b3b6ddf3d, type: 3}
-    index: 1
-  - go: {fileID: 100018, guid: 467d05ea003349245ac7d88b3b6ddf3d, type: 3}
-    index: 2
-  - go: {fileID: 100020, guid: 467d05ea003349245ac7d88b3b6ddf3d, type: 3}
-    index: 3
-  - go: {fileID: 100022, guid: 467d05ea003349245ac7d88b3b6ddf3d, type: 3}
-    index: 4
-  - go: {fileID: 100024, guid: 467d05ea003349245ac7d88b3b6ddf3d, type: 3}
-    index: 5
-  - go: {fileID: 100026, guid: 467d05ea003349245ac7d88b3b6ddf3d, type: 3}
-    index: 6
   generateGOHierarchy: 0
   textureAssetName: ranged enemy draft
   prefabAssetName: ranged enemy draft_GO
   spriteLibAssetName: rangedEnemy Sprite Lib
+  secondarySpriteTextures: []

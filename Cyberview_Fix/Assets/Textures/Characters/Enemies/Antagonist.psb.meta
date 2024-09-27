@@ -61,6 +61,7 @@ ScriptedImporter:
     maxTextureSizeSet: 0
     compressionQualitySet: 0
     textureFormatSet: 0
+    applyGammaDecoding: 0
   spriteImportData:
   - name: 
     originalName: 
@@ -3804,24 +3805,8 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-  boneGOs:
-  - go: {fileID: 5911854667084284434, guid: ecd176611b5b93143b8a6310a99ff2ec, type: 3}
-    index: 0
-  - go: {fileID: 4062845946226305590, guid: ecd176611b5b93143b8a6310a99ff2ec, type: 3}
-    index: 1
-  - go: {fileID: 5752554001840604938, guid: ecd176611b5b93143b8a6310a99ff2ec, type: 3}
-    index: 2
-  - go: {fileID: -5236307703426390566, guid: ecd176611b5b93143b8a6310a99ff2ec, type: 3}
-    index: 3
-  - go: {fileID: 7717601133458663560, guid: ecd176611b5b93143b8a6310a99ff2ec, type: 3}
-    index: 4
-  - go: {fileID: -1843431546549274744, guid: ecd176611b5b93143b8a6310a99ff2ec, type: 3}
-    index: 5
-  - go: {fileID: 2652454096487157504, guid: ecd176611b5b93143b8a6310a99ff2ec, type: 3}
-    index: 6
-  - go: {fileID: -8744874471415643848, guid: ecd176611b5b93143b8a6310a99ff2ec, type: 3}
-    index: 7
   generateGOHierarchy: 0
   textureAssetName: Antagonist Texture
   prefabAssetName: Antagonist Prefab
   spriteLibAssetName: Antagonist Sprite Lib
+  secondarySpriteTextures: []

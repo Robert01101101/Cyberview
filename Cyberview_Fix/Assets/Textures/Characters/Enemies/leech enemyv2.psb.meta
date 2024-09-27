@@ -61,6 +61,7 @@ ScriptedImporter:
     maxTextureSizeSet: 0
     compressionQualitySet: 0
     textureFormatSet: 0
+    applyGammaDecoding: 0
   spriteImportData:
   - name: 
     originalName: 
@@ -2912,20 +2913,8 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-  boneGOs:
-  - go: {fileID: 6214434671530996225, guid: eff1e8b721f93cb4a9466496300a6327, type: 3}
-    index: 0
-  - go: {fileID: 4220089897848194604, guid: eff1e8b721f93cb4a9466496300a6327, type: 3}
-    index: 1
-  - go: {fileID: 8480548814659178560, guid: eff1e8b721f93cb4a9466496300a6327, type: 3}
-    index: 2
-  - go: {fileID: -3627599687682497554, guid: eff1e8b721f93cb4a9466496300a6327, type: 3}
-    index: 3
-  - go: {fileID: 3048945254822984150, guid: eff1e8b721f93cb4a9466496300a6327, type: 3}
-    index: 4
-  - go: {fileID: 7736221527501501172, guid: eff1e8b721f93cb4a9466496300a6327, type: 3}
-    index: 5
   generateGOHierarchy: 0
   textureAssetName: leech enemyv2 Texture
   prefabAssetName: leech enemyv2 Prefab
   spriteLibAssetName: leech enemyv2 Sprite Lib
+  secondarySpriteTextures: []

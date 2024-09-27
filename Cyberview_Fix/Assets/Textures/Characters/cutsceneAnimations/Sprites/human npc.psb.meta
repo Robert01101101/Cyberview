@@ -61,6 +61,7 @@ ScriptedImporter:
     maxTextureSizeSet: 0
     compressionQualitySet: 0
     textureFormatSet: 0
+    applyGammaDecoding: 0
   spriteImportData:
   - name: 
     originalName: 
@@ -6460,18 +6461,8 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-  boneGOs:
-  - go: {fileID: 2962641123627446306, guid: 3e7ac6f59e19eca4c9a097b727b0ad5b, type: 3}
-    index: 0
-  - go: {fileID: 2594241063539198266, guid: 3e7ac6f59e19eca4c9a097b727b0ad5b, type: 3}
-    index: 1
-  - go: {fileID: 7748093079663373789, guid: 3e7ac6f59e19eca4c9a097b727b0ad5b, type: 3}
-    index: 2
-  - go: {fileID: -5098341148385058652, guid: 3e7ac6f59e19eca4c9a097b727b0ad5b, type: 3}
-    index: 3
-  - go: {fileID: -197506837057913735, guid: 3e7ac6f59e19eca4c9a097b727b0ad5b, type: 3}
-    index: 4
   generateGOHierarchy: 0
   textureAssetName: human npc Texture
   prefabAssetName: human npc Prefab
   spriteLibAssetName: human npc Sprite Lib
+  secondarySpriteTextures: []
